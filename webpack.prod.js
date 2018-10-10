@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'exploration-demo.min.js'
+    filename: 'documentation-feedback.min.js'
   },
   plugins: [
     new CompressionPlugin({ test: /\.js/ })

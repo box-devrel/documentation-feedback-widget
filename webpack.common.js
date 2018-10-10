@@ -3,13 +3,13 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   // input
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: path.resolve(__dirname, "src", "index.js"),
 
   // output
   output: {
-    library: 'feedback',
-    libraryTarget: 'umd',
-    libraryExport: 'default'
+    library: "feedback",
+    libraryTarget: "umd",
+    libraryExport: "default"
   },
 
   // transformations
@@ -19,13 +19,13 @@ module.exports = {
         enforce: "pre",
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "eslint-loader",
+        loader: "eslint-loader"
       },
       {
         enforce: "pre",
         test: /\s[a|c]ss$/,
         exclude: /node_modules/,
-        loader: 'sasslint',
+        loader: "sasslint",
         options: {
           failOnWarning: true
         }
@@ -34,46 +34,68 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
-        test: /\.(scss|css)$/,
+        test: /styles\/.*\.(scss|css)$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
             options: { singleton: true, sourceMap: false }
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: { modules: true, importLoaders: 1, sourceMap: false }
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
               sourceMap: false,
-              ctx: { autoprefixer: { browsers: 'last 2 versions' } }
+              ctx: { autoprefixer: { browsers: "last 2 versions" } }
             }
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: { sourceMap: false }
           }
         ]
       },
+      {
+        test: /preact-material-components\/.*\.(scss|css)$/,
+        use: [
+          {
+            loader: "style-loader",
+            options: { singleton: true, sourceMap: false }
+          },
+          {
+            loader: "css-loader",
+            options: { modules: false, importLoaders: 1, sourceMap: false }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: false,
+              ctx: { autoprefixer: { browsers: "last 2 versions" } }
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: { sourceMap: false }
+          }
+        ]
+      }
     ]
   },
 
   // Plugins
-  plugins: [
-    new StyleLintPlugin(),
-  ],
+  plugins: [new StyleLintPlugin()],
 
   // Make compatible with React modules
   resolve: {
     alias: {
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat',
+      react: "preact-compat",
+      "react-dom": "preact-compat"
     }
   }
 };

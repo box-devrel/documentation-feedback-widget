@@ -1,5 +1,8 @@
 import { h, Component } from "preact";
 
+import IconButton from "preact-material-components/esm/IconButton";
+import "preact-material-components/IconButton/style.css";
+
 // Local imports
 // import Blocks from "./blocks";
 // import Config from "./config";
@@ -44,8 +47,10 @@ export default class Widget extends Component {
    */
   render() {
     return (
-      <div className={style.this.concat(" feedback-widget")}>
-        Test
+      <div className={style.this}>
+        <IconButton raised ripple>
+          favorite_border
+        </IconButton>
       </div>
     );
   }
