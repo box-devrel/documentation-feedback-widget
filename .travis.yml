@@ -1,0 +1,15 @@
+language: node_js
+cache: yarn
+node_js:
+  - 8
+script:
+- echo "skipping tests"
+before_deploy: yarn build
+deploy:
+  - provider: pages
+    local-dir: dist
+    github-token: $GITHUB_TOKEN
+    skip-cleanup: true
+    keep-history: true
+    on:
+      branch: master
