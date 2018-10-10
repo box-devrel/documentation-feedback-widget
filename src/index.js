@@ -1,11 +1,11 @@
 import { h, render } from "preact";
 
 // // Local imports
-// import Explorer from "./components/explorer";
+import Widget from "./components/widget";
 
 /**
  * The entry point for our widget, allowing for the browser
- * to call `explorer.setup()` to bind a new widget to the
+ * to call `feedback.setup()` to bind a new widget to the
  * browser.
  */
 class DocumentationFeedback {
@@ -21,7 +21,7 @@ class DocumentationFeedback {
    */
   bind() {
     let container = document.querySelector(this.config.element);
-    let explorer = <h1>Test</h1>;
+    let explorer = <Widget>Test</Widget>;
     render(explorer, container);
   }
 
