@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Box Feedback Widget</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="documentation-feedback.js" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="feedback" />
+
+    <script type="text/javascript">
+      feedback.setup({
+        element: "#feedback",
+        url: "POST https://4s8t44vrtd.execute-api.us-east-1.amazonaws.com/prod/feedback"
+      });
+    </script>
+  </body>
+</html>
