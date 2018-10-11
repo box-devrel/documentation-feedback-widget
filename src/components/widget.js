@@ -1,7 +1,13 @@
 import { h, Component } from "preact";
 
-import IconButton from "preact-material-components/esm/IconButton";
-import "preact-material-components/IconButton/style.css";
+import Button from "preact-material-components/Button";
+import LayoutGrid from "preact-material-components/LayoutGrid";
+import Typography from "preact-material-components/Typography";
+
+import "preact-material-components/Button/style.css";
+import "preact-material-components/Theme/style.css";
+import "preact-material-components/LayoutGrid/style.css";
+import "preact-material-components/Typography/style.css";
 
 // Local imports
 // import Blocks from "./blocks";
@@ -48,9 +54,23 @@ export default class Widget extends Component {
   render() {
     return (
       <div className={style.this}>
-        <IconButton raised ripple>
-          favorite_border
-        </IconButton>
+        <LayoutGrid>
+          <LayoutGrid.Inner>
+            <LayoutGrid.Cell cols="12">
+              <Typography headline6>Was this documentation helpful?</Typography>
+            </LayoutGrid.Cell>
+            <LayoutGrid.Cell cols="3">
+              <Button unelevated>
+                Yes
+              </Button>
+            </LayoutGrid.Cell>
+            <LayoutGrid.Cell cols="3">
+              <Button unelevated class='mdc-theme--secondary-bg'>
+                No
+              </Button>
+            </LayoutGrid.Cell>
+          </LayoutGrid.Inner>
+        </LayoutGrid>
       </div>
     );
   }

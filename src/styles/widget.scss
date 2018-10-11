@@ -4,4 +4,6 @@
   min-height: 100px;
   color: $text;
   background-color: $light-shade;
+
+  --mdc-theme-primary: #{$active};
 }
