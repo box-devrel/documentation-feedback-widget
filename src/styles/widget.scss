@@ -3,7 +3,11 @@
 .this {
   min-height: 100px;
   color: $text;
-  background-color: $light-shade;
+  border: 1px solid darken($light-shade, 5%);
+
+  .i {
+    color: red;
+  }
 
   button {
     margin-right: 0.5em;
