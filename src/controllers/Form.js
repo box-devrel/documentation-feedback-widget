@@ -1,5 +1,6 @@
 import { h, Component } from "preact";
 import linkState from "linkstate";
+import Cookie from "../utils/Cookie";
 
 import FormComponent from "../components/Form";
 
@@ -12,9 +13,10 @@ export default class Form extends Component {
    */
   constructor(props) {
     super(props);
+    this.cookie = new Cookie();
     this.state = {
-      name: null,
-      email: null,
+      name: this.cookie.get("name"),
+      email: this.cookie.get("email"),
       message: null
     };
   }
@@ -23,6 +25,7 @@ export default class Form extends Component {
    * We link inputs to the state
    */
   onInput = (name) => {
+    this.cookie.set(this.state);
     return linkState(this, name);
   }
 

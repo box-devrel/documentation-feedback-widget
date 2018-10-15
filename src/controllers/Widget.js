@@ -11,6 +11,7 @@ export default class Widget extends Component {
    */
   constructor(props) {
     super(props);
+    
     this.state = { 
       response: null,
       showForm: false,
@@ -47,7 +48,8 @@ export default class Widget extends Component {
    * TBI: Pretend to submit the data
    */
   postLongData = (feedback) => {
-    console.log({ ...feedback, response: this.state.response }); //eslint-disable-line
+    let data = { ...feedback, response: this.state.response };
+    console.log(data); //eslint-disable-line
     setTimeout(this.onLongDataSubmitted, 1000);
   }
 
