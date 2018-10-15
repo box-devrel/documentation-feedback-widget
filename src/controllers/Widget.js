@@ -45,7 +45,7 @@ export default class Widget extends Component {
 
   onSubmit = () => {
     this.setState({
-      onSubmitted: true,
+      submitted: true,
       showForm: false,
       showFormPrompt: false
     });
