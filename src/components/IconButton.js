@@ -1,28 +1,19 @@
 import { h } from "preact";
 
+// Material UI
 import Button from "preact-material-components/Button";
+import "preact-material-components/Button/style.css";
 import Icon from "preact-material-components/Icon";
-
 import "preact-material-components/Icon/style.css";
 
+// Custom styling
 import style from "../styles/icon_button.scss";
 
-function ThumbsButton(props) {
-  return (
-    <span>
-      {
-        props.positive ? (
-          <Icon>thumb_up</Icon>
-        ) : (
-          <Icon>thumb_down</Icon>
-        )
-      }
-    </span>
-  );
-}
+// Custom modules
+import ThumbIcon from "./ThumbIcon";
 
-export default function IconButton ({ positive, loading, onClick, useful }) {
-  let selected = useful === positive;
+const IconButton = ({ positive, loading, onClick, response }) => {
+  let selected = response === positive;
   let className = positive ? "" : (selected ? " mdc-theme--secondary-bg" : " mdc-theme--secondary");
 
   return (
@@ -33,11 +24,13 @@ export default function IconButton ({ positive, loading, onClick, useful }) {
       outlined={!selected}
       raised={selected}
       onClick={onClick}>
-      {useful === positive && loading ? (
+      {response === positive && loading ? (
         <Icon class={style.rotating}>loop</Icon>
       ) : (
-        <ThumbsButton {...{positive}} />
+        <ThumbIcon {...{positive}} />
       )}
     </Button>
   );
-}
+};
+
+export default IconButton;

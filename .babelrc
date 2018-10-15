@@ -4,6 +4,12 @@
   ],
   "plugins": [
     [
+      "@babel/plugin-proposal-class-properties", 
+      {
+        "loose": true
+      }
+    ],
+    [
       "transform-react-jsx",
       {
         "pragma": "h"
