@@ -15,38 +15,59 @@ export default class Widget extends Component {
       response: null,
       showForm: false,
       showFormPrompt: false,
-      submitted: false
+      submitted: false,
+      submittingShortResponse: false,
+      submittingLongResponse: false
     };
   }
 
   /**
    * Submits a response to the server
    */
-  submitResponse = response => {
+  submitShortResponse = response => {
     return () => {
       this.setState({
-        loading: true,
+        submittingShortResponse: true,
         response: response
       });
-      this.postData();
+      this.postShortData(response);
     };
   };
 
   /**
    * TBI: Pretend to submit the data
    */
-  postData = () => {
-    setTimeout(this.endLoading, 1000);
+  postShortData = (response) => {
+    console.log(response); //eslint-disable-line
+    setTimeout(this.onShortDataSubmitted, 1000);
+  }
+
+
+  /**
+   * TBI: Pretend to submit the data
+   */
+  postLongData = (feedback) => {
+    console.log({ ...feedback, response: this.state.response }); //eslint-disable-line
+    setTimeout(this.onLongDataSubmitted, 1000);
   }
 
   /**
    * Ends any loading spinners
    */
-  endLoading = () => {
+  onShortDataSubmitted = () => {
     this.setState({
-      loading: false,
+      submittingShortResponse: false,
       showForm: this.state.showForm || !this.state.response,
       showFormPrompt: this.state.response && !this.state.showForm
+    });
+  }
+
+  /** 
+   * End loading spinners after long data submitted
+   */
+  onLongDataSubmitted = () => {
+    this.setState({
+      submittingLongResponse: false
     });
   }
 
@@ -64,22 +85,23 @@ export default class Widget extends Component {
   /**
    * Submits any more further feedback
    */
-  submitFeedback = () => {
+  submitLongResponse = (feedback) => {
     this.setState({
       submitted: true,
-      showForm: false,
-      showFormPrompt: false
+      submittingLongResponse: true,
+      showForm: false
     });
+    this.postLongData(feedback);
   };
 
   /**
    * Render the view
    */
-  render(_, props) {
+  render(_, state) {
     return <WidgetComponent 
-      {...props}
-      setResponse={this.submitResponse}
+      {...state}
+      onSubmitShortResponse={this.submitShortResponse}
       setShowForm={this.setShowForm}
-      onSubmit={this.submitFeedback} />;
+      onSubmitLongResponse={this.submitLongResponse} />;
   }
 }

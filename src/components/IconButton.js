@@ -8,7 +8,7 @@ import "preact-material-components/Icon/style.css";
 
 import ThumbIcon from "./ThumbIcon";
 
-import style from "../styles/IconButton.scss";
+import { rotating } from "../styles/Icon.scss";
 
 const IconButton = ({ positive, loading, onClick, response }) => {
   let selected = response === positive;
@@ -16,14 +16,14 @@ const IconButton = ({ positive, loading, onClick, response }) => {
 
   return (
     <Button
-      class={style.this.concat(className)}
+      class={className}
       positive={positive}
       negative={!positive}
       outlined={!selected}
       raised={selected}
       onClick={onClick}>
       {response === positive && loading ? (
-        <Icon class={style.rotating}>loop</Icon>
+        <Icon class={rotating}>loop</Icon>
       ) : (
         <ThumbIcon {...{positive}} />
       )}

@@ -14,12 +14,13 @@ import "preact-material-components/Theme/style.css";
  */
 const Widget = ({
   submitted,
-  loading,
+  submittingShortResponse,
+  submittingLongResponse,
   response,
   showForm,
   showFormPrompt,
-  setResponse,
-  onSubmit,
+  onSubmitShortResponse,
+  onSubmitLongResponse,
   setShowForm
 }) => (
   <div className={container}>
@@ -27,13 +28,21 @@ const Widget = ({
     <IconButtons
       className={row}
       submitted={submitted}
-      loading={loading}
+      loading={submittingShortResponse}
       response={response}
-      onClick={setResponse}
+      onClick={onSubmitShortResponse}
     />
     <FormPrompt show={showFormPrompt} className={row} onClick={setShowForm} />
-    <Form moduleName="../components/Form" show={showForm} className={row} onSubmit={onSubmit} />
-    <ThankYouNote show={submitted} className={row} />
+    <Form
+      moduleName="../components/Form"
+      show={showForm}
+      className={row}
+      onSubmit={onSubmitLongResponse}
+    />
+    <ThankYouNote 
+      show={submitted} 
+      className={row}
+      loading={submittingLongResponse} />
   </div>
 );
 

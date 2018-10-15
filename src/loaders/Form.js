@@ -6,7 +6,7 @@ import { h, Component } from "preact";
 export default class Form extends Component {
   componentWillReceiveProps({ show }) {
     if (show && !this.View) {
-      import("../components/Form").then(
+      import("../controllers/Form").then(
         module => {
           this.View = module.default;
           this.forceUpdate();
