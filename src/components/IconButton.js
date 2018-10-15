@@ -7,7 +7,7 @@ import Icon from "preact-material-components/Icon";
 import "preact-material-components/Icon/style.css";
 
 // Custom styling
-import style from "../styles/icon_button.scss";
+import style from "../styles/IconButton.scss";
 
 // Custom modules
 import ThumbIcon from "./ThumbIcon";

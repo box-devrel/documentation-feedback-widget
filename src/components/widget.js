@@ -8,7 +8,7 @@ import ThankYouNote from "./ThankYouNote";
 import Form from "./Form";
 
 // CSS Styles
-import { container, row } from "../styles/widget.scss";
+import { container, row } from "../styles/Widget.scss";
 
 export default class Widget extends Component {
   constructor(props) {
