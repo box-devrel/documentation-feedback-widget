@@ -1,7 +1,7 @@
 import { h, render } from "preact";
 
 // // Local imports
-import Widget from "./components/Widget";
+import Widget from "./controllers/Widget";
 
 /**
  * The entry point for our widget, allowing for the browser

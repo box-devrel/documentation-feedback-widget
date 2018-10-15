@@ -1,4 +1,4 @@
-import { h, Component } from "preact";
+import { h } from "preact";
 
 // Local modules
 import Header from "./Header";
@@ -10,77 +10,29 @@ import Form from "./Form";
 // CSS Styles
 import { container, row } from "../styles/Widget.scss";
 
-export default class Widget extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      response: null,
-      showForm: false,
-      showFormPrompt: false,
-      submitted: false
-    };
-  }
+const Widget = ({
+  submitted,
+  loading,
+  response,
+  showForm,
+  showFormPrompt,
+  setResponse,
+  submitForm,
+  setShowForm
+}) => (
+  <div className={container}>
+    <Header className={row} />
+    <IconButtons
+      className={row}
+      submitted={submitted}
+      loading={loading}
+      response={response}
+      onClick={setResponse}
+    />
+    <FormPrompt show={showFormPrompt} className={row} onClick={setShowForm} />
+    <Form show={showForm} className={row} onSubmit={submitForm} />
+    <ThankYouNote className={row} submitted={submitted} />
+  </div>
+);
 
-  setResponse = response => {
-    return () => {
-      this.setState({
-        loading: true,
-        response: response
-      });
-      this.postData();
-    };
-  };
-
-  postData = () => {
-    setTimeout(this.disableLoading, 1000);
-  }
-
-  disableLoading = () => {
-    this.setState({
-      loading: false,
-      showForm: this.state.showForm || !this.state.response,
-      showFormPrompt: this.state.response && !this.state.showForm
-    });
-  }
-
-  showForm = () => {
-    this.setState({
-      showForm: true,
-      showFormPrompt: false
-    });
-  };
-
-  submit = () => {
-    this.setState({
-      submitted: true,
-      showForm: false,
-      showFormPrompt: false
-    });
-  };
-
-  render(_, { submitted, loading, response, showForm, showFormPrompt }) {
-    return (
-      <div className={container}>
-        <Header className={row} />
-        <IconButtons 
-          className={row} 
-          submitted={submitted}
-          loading={loading}
-          response={response} 
-          onClick={this.setResponse}/>
-        <FormPrompt 
-          show={showFormPrompt}
-          className={row}
-          onClick={this.showForm}
-        />
-        <Form
-          show={showForm}
-          className={row}
-          onSubmit={this.submit} />
-        <ThankYouNote
-          className={row}
-          submitted={submitted} />  
-      </div>
-    );
-  }
-}
+export default Widget;
