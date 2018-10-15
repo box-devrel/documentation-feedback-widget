@@ -3,13 +3,15 @@ import { h, Component } from "preact";
 /**
  * Lazy loads the component
  */
-export default class Loader extends Component {
+export default class Form extends Component {
   componentWillReceiveProps({ show }) {
     if (show && !this.View) {
-      import("../components/Form").then(module => {
-        this.View = module.default;
-        this.forceUpdate();
-      });
+      import("../components/Form").then(
+        module => {
+          this.View = module.default;
+          this.forceUpdate();
+        }
+      );
     }
   }
 

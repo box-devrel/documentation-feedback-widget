@@ -6,7 +6,7 @@ import { h, Component } from "preact";
 export default class ThankYouNote extends Component {
   componentWillReceiveProps({ show }) {
     if (show && !this.View) {
-      import(/* webpackChunkName: "chunk-thank-you" */ "../components/ThankYouNote")
+      import("../components/ThankYouNote")
         .then((module) => {
           this.View = module.default;
           this.forceUpdate();

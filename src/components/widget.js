@@ -32,7 +32,7 @@ const Widget = ({
       onClick={setResponse}
     />
     <FormPrompt show={showFormPrompt} className={row} onClick={setShowForm} />
-    <Form show={showForm} className={row} onSubmit={onSubmit} />
+    <Form moduleName="../components/Form" show={showForm} className={row} onSubmit={onSubmit} />
     <ThankYouNote show={submitted} className={row} />
   </div>
 );

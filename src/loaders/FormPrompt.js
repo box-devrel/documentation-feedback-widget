@@ -6,7 +6,7 @@ import { h, Component } from "preact";
 export default class FormPrompt extends Component {
   componentWillReceiveProps({ show }) {
     if (show && !this.View) {
-      import(/* webpackChunkName: "chunk-form-prompt" */ "../components/FormPrompt")
+      import("../components/FormPrompt")
         .then((module) => {
           this.View = module.default;
           this.forceUpdate();
