@@ -3,11 +3,21 @@ import { h } from "preact";
 import Button from "preact-material-components/Button";
 import TextField from "preact-material-components/TextField";
 import Typography from "preact-material-components/Typography";
+import LinearProgress from "preact-material-components/LinearProgress";
 import "preact-material-components/Button/style.css";
 import "preact-material-components/TextField/style.css";
 import "preact-material-components/Typography/style.css";
+import "preact-material-components/LinearProgress/style.css";
 
-const Form = ({ name, email, message, onInput, className, onSubmit }) => (
+const Form = ({
+  name,
+  email,
+  message,
+  onInput,
+  className,
+  onSubmit,
+  disabled
+}) => (
   <form onSubmit={onSubmit}>
     <div className={className}>
       <TextField
@@ -16,6 +26,7 @@ const Form = ({ name, email, message, onInput, className, onSubmit }) => (
         outlined
         label="Name (optional)"
         autofocus
+        disabled={disabled}
         type="text"
       />
     </div>
@@ -25,6 +36,7 @@ const Form = ({ name, email, message, onInput, className, onSubmit }) => (
         onInput={onInput("email")}
         outlined
         label="Email (optional)"
+        disabled={disabled}
         type="email"
       />
     </div>
@@ -34,12 +46,15 @@ const Form = ({ name, email, message, onInput, className, onSubmit }) => (
         onInput={onInput("message")}
         textarea={true}
         label="How could we improve it? (optional)"
+        disabled={disabled}
       />
     </div>
     <div className={className}>
-      <Button unelevated>Send Feedback</Button>
+      <Button unelevated disabled={disabled}>Send Feedback</Button>
     </div>
-    <hr />
+    <div className={className}>
+      <LinearProgress indeterminate={disabled} />
+    </div>
     <div className={className}>
       <Typography caption>
         Your data will be treated in accordance with our

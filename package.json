@@ -44,6 +44,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@rmwc/circular-progress": "^3.0.5",
     "cookies-js": "^1.2.3",
     "js-cookie": "^2.2.0",
     "linkstate": "^1.1.1",

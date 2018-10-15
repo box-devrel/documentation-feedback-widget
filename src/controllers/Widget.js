@@ -40,7 +40,7 @@ export default class Widget extends Component {
    */
   postShortData = (response) => {
     console.log(response); //eslint-disable-line
-    setTimeout(this.onShortDataSubmitted, 1000);
+    setTimeout(this.onShortDataSubmitted, 100);
   }
 
 
@@ -69,7 +69,9 @@ export default class Widget extends Component {
    */
   onLongDataSubmitted = () => {
     this.setState({
-      submittingLongResponse: false
+      submitted: true,
+      submittingLongResponse: false,
+      showForm: false
     });
   }
 
@@ -89,9 +91,7 @@ export default class Widget extends Component {
    */
   submitLongResponse = (feedback) => {
     this.setState({
-      submitted: true,
-      submittingLongResponse: true,
-      showForm: false
+      submittingLongResponse: true
     });
     this.postLongData(feedback);
   };

@@ -41,6 +41,7 @@ export default class Form extends Component {
    * Render the view
    */
   render(props, state) {
+    console.log(props); //eslint-disable-line
     return (
       <FormComponent 
         {...props} 

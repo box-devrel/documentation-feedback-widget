@@ -34,15 +34,14 @@ const Widget = ({
     />
     <FormPrompt show={showFormPrompt} className={row} onClick={setShowForm} />
     <Form
-      moduleName="../components/Form"
       show={showForm}
       className={row}
+      disabled={submittingLongResponse}
       onSubmit={onSubmitLongResponse}
     />
     <ThankYouNote 
       show={submitted} 
-      className={row}
-      loading={submittingLongResponse} />
+      className={row} />
   </div>
 );
 
