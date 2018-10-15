@@ -1,6 +1,5 @@
 import { h } from "preact";
 
-// Material UI
 import Typography from "preact-material-components/Typography";
 import "preact-material-components/Typography/style.css";
 

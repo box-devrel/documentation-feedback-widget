@@ -1,12 +1,11 @@
 import { h } from "preact";
 
-// Material UI components
 import Button from "preact-material-components/Button";
 import TextField from "preact-material-components/TextField";
 import Typography from "preact-material-components/Typography";
 import "preact-material-components/Button/style.css";
 import "preact-material-components/TextField/style.css";
-import "preact-material-components/Theme/style.css";
+import "preact-material-components/Typography/style.css";
 
 const Form = ({ className, onSubmit }) => (
   <div>

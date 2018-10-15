@@ -1,9 +1,14 @@
 import { h, Component } from "preact";
 
-// Local modules
 import WidgetComponent from "../components/Widget";
 
+/**
+ * Controller for the widget, defines and handles state
+ */
 export default class Widget extends Component {
+  /**
+   * Assume no feedback submitted yet, and hide the form
+   */
   constructor(props) {
     super(props);
     this.state = { 
@@ -14,7 +19,10 @@ export default class Widget extends Component {
     };
   }
 
-  setResponse = response => {
+  /**
+   * Submits a response to the server
+   */
+  submitResponse = response => {
     return () => {
       this.setState({
         loading: true,
@@ -24,11 +32,17 @@ export default class Widget extends Component {
     };
   };
 
+  /**
+   * TBI: Pretend to submit the data
+   */
   postData = () => {
-    setTimeout(this.disableLoading, 1000);
+    setTimeout(this.endLoading, 1000);
   }
 
-  disableLoading = () => {
+  /**
+   * Ends any loading spinners
+   */
+  endLoading = () => {
     this.setState({
       loading: false,
       showForm: this.state.showForm || !this.state.response,
@@ -36,6 +50,10 @@ export default class Widget extends Component {
     });
   }
 
+  /**
+   * Shows the form, used whe the user first provides on 
+   * a positive response
+   */
   setShowForm = () => {
     this.setState({
       showForm: true,
@@ -43,7 +61,10 @@ export default class Widget extends Component {
     });
   };
 
-  onSubmit = () => {
+  /**
+   * Submits any more further feedback
+   */
+  submitFeedback = () => {
     this.setState({
       submitted: true,
       showForm: false,
@@ -51,11 +72,14 @@ export default class Widget extends Component {
     });
   };
 
+  /**
+   * Render the view
+   */
   render(_, props) {
     return <WidgetComponent 
       {...props}
-      setResponse={this.setResponse}
+      setResponse={this.submitResponse}
       setShowForm={this.setShowForm}
-      onSubmit={this.onSubmit} />;
+      onSubmit={this.submitFeedback} />;
   }
 }

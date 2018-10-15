@@ -1,9 +1,12 @@
 import { h, Component } from "preact";
 
+/**
+ * Lazy loads the component
+ */
 export default class ThankYouNote extends Component {
   componentWillReceiveProps({ show }) {
     if (show && !this.View) {
-      import(/* webpackChunkName: "chunk-form" */ "../components/ThankYouNote")
+      import(/* webpackChunkName: "chunk-thank-you" */ "../components/ThankYouNote")
         .then((module) => {
           this.View = module.default;
           this.forceUpdate();

@@ -1,5 +1,8 @@
 import { h, Component } from "preact";
 
+/**
+ * Lazy loads the component
+ */
 export default class FormPrompt extends Component {
   componentWillReceiveProps({ show }) {
     if (show && !this.View) {

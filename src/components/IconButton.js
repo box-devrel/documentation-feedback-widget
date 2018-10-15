@@ -2,15 +2,13 @@ import { h } from "preact";
 
 // Material UI
 import Button from "preact-material-components/Button";
-import "preact-material-components/Button/style.css";
 import Icon from "preact-material-components/Icon";
+import "preact-material-components/Button/style.css";
 import "preact-material-components/Icon/style.css";
 
-// Custom styling
-import style from "../styles/IconButton.scss";
-
-// Custom modules
 import ThumbIcon from "./ThumbIcon";
+
+import style from "../styles/IconButton.scss";
 
 const IconButton = ({ positive, loading, onClick, response }) => {
   let selected = response === positive;

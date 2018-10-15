@@ -1,6 +1,5 @@
 import { h } from "preact";
 
-// Material UI
 import Icon from "preact-material-components/Icon";
 import "preact-material-components/Icon/style.css";
 

@@ -1,15 +1,17 @@
 import { h } from "preact";
 
-// Local modules
 import Header from "./Header";
 import IconButtons from "./IconButtons";
 import FormPrompt from "../loaders/FormPrompt";
 import ThankYouNote from "../loaders/ThankYouNote";
 import Form from "../loaders/Form";
 
-// CSS Styles
 import { container, row } from "../styles/Widget.scss";
+import "preact-material-components/Theme/style.css";
 
+/**
+ * The actual view for our widget. Binds the UI to all the props and handlers
+ */
 const Widget = ({
   submitted,
   loading,
