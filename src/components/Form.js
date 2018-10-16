@@ -12,7 +12,7 @@ import "preact-material-components/LinearProgress/style.css";
 const Form = ({
   name,
   email,
-  message,
+  note,
   onInput,
   className,
   onSubmit,
@@ -42,15 +42,18 @@ const Form = ({
     </div>
     <div className={className}>
       <TextField
-        value={message}
-        onInput={onInput("message")}
+        value={note}
+        onInput={onInput("note")}
         textarea={true}
-        label="How could we improve it? (optional)"
+        label="How could we improve it?"
         disabled={disabled}
+        required={true}
       />
     </div>
     <div className={className}>
-      <Button unelevated disabled={disabled}>Send Feedback</Button>
+      <Button unelevated disabled={disabled}>
+        Send Feedback
+      </Button>
     </div>
     <div className={className}>
       <LinearProgress indeterminate={disabled} />

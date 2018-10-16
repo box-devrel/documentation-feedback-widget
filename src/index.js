@@ -21,8 +21,8 @@ class DocumentationFeedback {
    */
   bind() {
     let container = document.querySelector(this.config.element);
-    let explorer = <Widget>Test</Widget>;
-    render(explorer, container);
+    let widget = <Widget {...this.config}>Test</Widget>;
+    render(widget, container);
   }
 
   /**

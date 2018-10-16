@@ -17,7 +17,7 @@ export default class Form extends Component {
     this.state = {
       name: this.cookie.get("name"),
       email: this.cookie.get("email"),
-      message: null
+      note: null
     };
   }
 
@@ -41,7 +41,6 @@ export default class Form extends Component {
    * Render the view
    */
   render(props, state) {
-    console.log(props); //eslint-disable-line
     return (
       <FormComponent 
         {...props} 

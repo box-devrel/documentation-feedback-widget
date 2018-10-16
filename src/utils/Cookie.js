@@ -9,7 +9,6 @@ export default class Cookie {
   }
 
   get(key) {
-    console.log(NAMESPACE + key); //eslint-disable-line
     return Cookies.get(NAMESPACE + key);
   }
 

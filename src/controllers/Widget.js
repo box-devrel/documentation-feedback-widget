@@ -13,6 +13,7 @@ export default class Widget extends Component {
     super(props);
     
     this.state = { 
+      responseId: null, 
       response: null,
       showForm: false,
       showFormPrompt: false,
@@ -36,28 +37,50 @@ export default class Widget extends Component {
   };
 
   /**
-   * TBI: Pretend to submit the data
+   * Submit basic response
    */
   postShortData = (response) => {
-    console.log(response); //eslint-disable-line
-    setTimeout(this.onShortDataSubmitted, 100);
+    fetch(this.props.endpoint + "/feedback/short", {
+      method: "POST",
+      body: JSON.stringify({
+        useful: response,
+        url: document.location.href,
+        id: this.state.id
+      }),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    }).then(res => res.json()).then(this.onShortDataSubmitted);
   }
 
 
   /**
-   * TBI: Pretend to submit the data
+   * Submit a longer response
    */
   postLongData = (feedback) => {
-    let data = { ...feedback, response: this.state.response };
-    console.log(data); //eslint-disable-line
-    setTimeout(this.onLongDataSubmitted, 1000);
+    let data = { 
+      ...feedback, 
+      url: document.location.href,
+      useful: this.state.response,
+      id: this.state.id
+    };
+    fetch(this.props.endpoint + "/feedback/long", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+      .then(res => res.json())
+      .then(this.onLongDataSubmitted);
   }
 
   /**
    * Ends any loading spinners
    */
-  onShortDataSubmitted = () => {
+  onShortDataSubmitted = (response) => {
     this.setState({
+      id: response.id,
       submittingShortResponse: false,
       showForm: this.state.showForm || !this.state.response,
       showFormPrompt: this.state.response && !this.state.showForm
