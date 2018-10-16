@@ -17,6 +17,7 @@ module.exports = {
     }
   },
   rules: {
+    "prefer-template": "error",
     indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],

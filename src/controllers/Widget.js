@@ -40,7 +40,7 @@ export default class Widget extends Component {
    * Submit basic response
    */
   postShortData = (response) => {
-    fetch(this.props.endpoint + "/feedback/short", {
+    fetch(`${this.props.endpoint}/feedback/short`, {
       method: "POST",
       body: JSON.stringify({
         useful: response,
@@ -64,7 +64,7 @@ export default class Widget extends Component {
       useful: this.state.response,
       id: this.state.id
     };
-    fetch(this.props.endpoint + "/feedback/long", {
+    fetch(`${this.props.endpoint}/feedback/long`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

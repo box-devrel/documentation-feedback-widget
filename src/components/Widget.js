@@ -2,9 +2,7 @@ import { h } from "preact";
 
 import Header from "./Header";
 import IconButtons from "./IconButtons";
-import FormPrompt from "../loaders/FormPrompt";
-import ThankYouNote from "../loaders/ThankYouNote";
-import Form from "../loaders/Form";
+import Loader from "../utils/Loader";
 
 import { container, row } from "../styles/Widget.scss";
 import "preact-material-components/Theme/style.css";
@@ -32,14 +30,20 @@ const Widget = ({
       response={response}
       onClick={onSubmitShortResponse}
     />
-    <FormPrompt show={showFormPrompt} className={row} onClick={setShowForm} />
-    <Form
+    <Loader 
+      moduleName='components/FormPrompt'
+      show={showFormPrompt} 
+      className={row} 
+      onClick={setShowForm} />
+    <Loader
+      moduleName='controllers/Form'
       show={showForm}
       className={row}
       disabled={submittingLongResponse}
       onSubmit={onSubmitLongResponse}
     />
-    <ThankYouNote 
+    <Loader 
+      moduleName='components/ThankYouNote'
       show={submitted} 
       className={row} />
   </div>

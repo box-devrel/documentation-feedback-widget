@@ -3,15 +3,14 @@ import { h, Component } from "preact";
 /**
  * Lazy loads the component
  */
-export default class Form extends Component {
-  componentWillReceiveProps({ show }) {
+export default class Loader extends Component {
+  componentWillReceiveProps({ show, moduleName }) {
     if (show && !this.View) {
-      import("../controllers/Form").then(
-        module => {
+      import(`../${moduleName}`)
+        .then((module) => {
           this.View = module.default;
           this.forceUpdate();
-        }
-      );
+        });
     }
   }
 
@@ -19,4 +18,3 @@ export default class Form extends Component {
     return <div>{this.View && show && <this.View {...props} />}</div>;
   }
 }
- 
