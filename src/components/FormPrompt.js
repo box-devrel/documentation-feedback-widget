@@ -3,7 +3,7 @@ import { h } from "preact";
 const FormPrompt = ({ className, onClick }) => (
   <div className={className}>
     Thank you!
-    <a onClick={onClick}>Tell us why.</a>
+    <a onClick={onClick}>Would you like to tell us more?</a>
   </div>
 );
 
