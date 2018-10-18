@@ -1,4 +1,4 @@
-import { h, Component } from "preact";
+import  { createElement, Component } from "react";
 
 import WidgetComponent from "../components/Widget";
 
@@ -122,9 +122,9 @@ export default class Widget extends Component {
   /**
    * Render the view
    */
-  render(_, state) {
+  render() {
     return <WidgetComponent 
-      {...state}
+      {...this.state}
       onSubmitShortResponse={this.submitShortResponse}
       setShowForm={this.setShowForm}
       onSubmitLongResponse={this.submitLongResponse} />;

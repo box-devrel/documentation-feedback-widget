@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { createElement } from "react";
 
 import IconButton from "./IconButton";
 

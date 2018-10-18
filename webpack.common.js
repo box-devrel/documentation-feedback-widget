@@ -93,13 +93,5 @@ module.exports = {
   },
 
   // Plugins
-  plugins: [new StyleLintPlugin()],
-
-  // Make compatible with React modules
-  resolve: {
-    alias: {
-      react: "preact-compat",
-      "react-dom": "preact-compat"
-    }
-  },
+  plugins: [new StyleLintPlugin()]
 };

@@ -1,13 +1,9 @@
-import { h } from "preact";
+import { createElement } from "react";
 
-import Button from "preact-material-components/Button";
-import TextField from "preact-material-components/TextField";
-import Typography from "preact-material-components/Typography";
-import LinearProgress from "preact-material-components/LinearProgress";
-import "preact-material-components/Button/style.css";
-import "preact-material-components/TextField/style.css";
-import "preact-material-components/Typography/style.css";
-import "preact-material-components/LinearProgress/style.css";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const Form = ({
   name,
@@ -23,9 +19,9 @@ const Form = ({
       <TextField
         value={name}
         onInput={onInput("name")}
-        outlined
+        variant="outlined"
         label="Name (optional)"
-        autofocus
+        autoFocus
         disabled={disabled}
         type="text"
       />
@@ -34,7 +30,7 @@ const Form = ({
       <TextField
         value={email}
         onInput={onInput("email")}
-        outlined
+        variant="outlined"
         label="Email (optional)"
         disabled={disabled}
         type="email"
@@ -44,22 +40,25 @@ const Form = ({
       <TextField
         value={note}
         onInput={onInput("note")}
-        textarea={true}
+        multiline={true}
         label="How could we improve it?"
         disabled={disabled}
         required={true}
+        variant="outlined"
+        fullWidth={true}
+        rows={4}
       />
     </div>
     <div className={className}>
-      <Button unelevated disabled={disabled}>
+      <Button variant="contained" color="primary" disabled={disabled} type="submit">
         Send Feedback
       </Button>
     </div>
     <div className={className}>
-      <LinearProgress indeterminate={disabled} />
+      <LinearProgress variant={ disabled ? "indeterminate" : "determinate" } value={0} />
     </div>
     <div className={className}>
-      <Typography caption>
+      <Typography variant="caption">
         Your data will be treated in accordance with our
         <a href="https://account.box.com/legal_text/privacy_policy">
           Privacy Policy
@@ -71,3 +70,7 @@ const Form = ({
 );
 
 export default Form;
+
+
+
+

@@ -1,4 +1,4 @@
-import { h, Component } from "preact";
+import { createElement, Component } from "react";
 import linkState from "linkstate";
 import Cookie from "../utils/Cookie";
 
@@ -17,7 +17,7 @@ export default class Form extends Component {
     this.state = {
       name: this.cookie.get("name"),
       email: this.cookie.get("email"),
-      note: null
+      note: ""
     };
   }
 
@@ -40,11 +40,11 @@ export default class Form extends Component {
   /**
    * Render the view
    */
-  render(props, state) {
+  render() {
     return (
       <FormComponent 
-        {...props} 
-        {...state}
+        {...this.props} 
+        {...this.state}
         onInput={this.onInput}
         onSubmit={this.onSubmit} />
     );

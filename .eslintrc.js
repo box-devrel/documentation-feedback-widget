@@ -13,7 +13,7 @@ module.exports = {
   settings: {
     react: {
       version: "16.5",
-      pragma: "h"
+      pragma: "createElement"
     }
   },
   rules: {

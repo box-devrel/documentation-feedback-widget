@@ -1,11 +1,9 @@
-import { h } from "preact";
-
-import Typography from "preact-material-components/Typography";
-import "preact-material-components/Typography/style.css";
+import { createElement } from "react";
+import Typography from "@material-ui/core/Typography";
 
 const ThankYouNote = ({ className }) => (
   <div className={className}>
-    <Typography body1>Thank you for your feedback.</Typography>
+    <Typography variant='body1'>Thank you for your feedback.</Typography>
   </div>
 );
 

@@ -1,3 +1,5 @@
+@import 'variables';
+
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(0deg);
@@ -10,4 +12,9 @@
 
 .rotating {
   animation: rotate 1s infinite linear;
+}
+
+.outlined {
+  color: $active !important;
+  background-color: $light-shade !important;
 }

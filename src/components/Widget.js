@@ -1,11 +1,10 @@
-import { h } from "preact";
+import { createElement } from "react";
 
 import Header from "./Header";
 import IconButtons from "./IconButtons";
 import Loader from "../utils/Loader";
 
 import { container, row } from "../styles/Widget.scss";
-import "preact-material-components/Theme/style.css";
 
 /**
  * The actual view for our widget. Binds the UI to all the props and handlers
@@ -22,15 +21,15 @@ const Widget = ({
   setShowForm
 }) => (
   <div className={container}>
-    <Header className={row} submitted={submitted} />
+    <Header submitted={submitted} className={row} />
     <IconButtons
       className={row}
       submitted={submitted}
       loading={submittingShortResponse}
       response={response}
-      onClick={onSubmitShortResponse}
-    />
+      onClick={onSubmitShortResponse} />
     <Loader 
+      key={showFormPrompt}
       moduleName='components/FormPrompt'
       show={showFormPrompt} 
       className={row} 
@@ -40,8 +39,7 @@ const Widget = ({
       show={showForm}
       className={row}
       disabled={submittingLongResponse}
-      onSubmit={onSubmitLongResponse}
-    />
+      onSubmit={onSubmitLongResponse} />
     <Loader 
       moduleName='components/ThankYouNote'
       show={submitted} 

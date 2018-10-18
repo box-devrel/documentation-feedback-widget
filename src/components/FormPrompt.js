@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { createElement } from "react";
 
 const FormPrompt = ({ className, onClick }) => (
   <div className={className}>

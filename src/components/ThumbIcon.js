@@ -1,15 +1,15 @@
-import { h } from "preact";
+import { createElement } from "react";
 
-import Icon from "preact-material-components/Icon";
-import "preact-material-components/Icon/style.css";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 
 const ThumbsIcon = ({ positive }) => (
   <span>
     {
       positive ? (
-        <Icon>thumb_up</Icon>
+        <ThumbUpIcon />
       ) : (
-        <Icon>thumb_down</Icon>
+        <ThumbDownIcon />
       )
     }
   </span>

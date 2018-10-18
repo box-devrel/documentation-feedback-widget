@@ -24,37 +24,10 @@
     border-color: $negative;
   }
 
-  :global(.mdc-text-field) {
-    background-color: $light;
-    border-color: $dark-shade;
-  }
-
-  :global(.mdc-notched-outline__idle) {
-    border-color: $dark-shade !important;
-  }
-
-  :global(.mdc-text-field--textarea) :global(.mdc-floating-label) {
-    padding-top: 0;
-    background: none;
-  }
-
-  :global(.mdc-text-field--textarea) :global(.mdc-floating-label--float-above) {
-    padding-top: 1em;
-  }
-
-  :global(.mdc-floating-label--float-above) {
-    color: $active !important;
-  }
-
   a {
     text-decoration: underline;
     color: $active;
     margin-left: 0.3em;
     cursor: pointer;
-  }
-
-  hr {
-    margin: 1em 1em 0 1em;
-    opacity: 0.6;
   }
 }

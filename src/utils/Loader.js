@@ -1,20 +1,29 @@
-import { h, Component } from "preact";
+import { createElement, Component, Fragment } from "react";
 
 /**
  * Lazy loads the component
  */
 export default class Loader extends Component {
-  componentWillReceiveProps({ show, moduleName }) {
-    if (show && !this.View) {
-      import(`../${moduleName}`)
+  constructor(props){
+    super(props);
+    this.state = { View: null };
+  }
+
+  loadModule() {
+    if (this.props.show && !this.state.View) {
+      import(`../${this.props.moduleName}`)
         .then((module) => {
-          this.View = module.default;
-          this.forceUpdate();
+          this.setState({ View: module.default });
         });
     }
   }
-
-  render({ show, ...props }) {
-    return <div>{this.View && show && <this.View {...props} />}</div>;
+  
+  render() {
+    this.loadModule();
+    return (
+      <Fragment>
+        { this.state.View && this.props.show && <this.state.View {...this.props} />}
+      </Fragment>
+    );
   }
 }

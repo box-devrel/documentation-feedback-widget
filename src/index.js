@@ -1,4 +1,5 @@
-import { h, render } from "preact";
+import { createElement } from "react";
+import { render } from "react-dom";
 
 // // Local imports
 import Widget from "./controllers/Widget";

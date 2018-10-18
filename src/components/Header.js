@@ -1,11 +1,9 @@
-import { h } from "preact";
-
-import Typography from "preact-material-components/Typography";
-import "preact-material-components/Typography/style.css";
+import { createElement } from "react";
+import Typography from "@material-ui/core/Typography";
 
 const Header = ({ className }) => (
   <div className={className}>
-    <Typography headline6>
+    <Typography variant="h6">
       <strong>Is this documentation useful?</strong>
     </Typography>
   </div>
