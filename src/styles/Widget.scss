@@ -4,6 +4,10 @@
   padding: 1em 1em 0 1em;
 }
 
+.paddedRow {
+  padding: 1em;
+}
+
 .container {
   color: $text;
   border-color: darken($light-shade, 5%);

@@ -23,7 +23,6 @@ const Widget = ({
   <div className={container}>
     <Header submitted={submitted} className={row} />
     <IconButtons
-      className={row}
       submitted={submitted}
       loading={submittingShortResponse}
       response={response}

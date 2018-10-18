@@ -1,6 +1,22 @@
 import  { createElement, Component } from "react";
 
 import WidgetComponent from "../components/Widget";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: {
+      main: "#0060d5"
+    },
+    secondary: {
+      main: "#fc6179",
+      contrastText: "#fff"
+    }
+  }
+});
 
 /**
  * Controller for the widget, defines and handles state
@@ -123,10 +139,14 @@ export default class Widget extends Component {
    * Render the view
    */
   render() {
-    return <WidgetComponent 
-      {...this.state}
-      onSubmitShortResponse={this.submitShortResponse}
-      setShowForm={this.setShowForm}
-      onSubmitLongResponse={this.submitLongResponse} />;
+    return (
+      <MuiThemeProvider theme={theme}>
+        <WidgetComponent 
+          {...this.state}
+          onSubmitShortResponse={this.submitShortResponse}
+          setShowForm={this.setShowForm}
+          onSubmitLongResponse={this.submitLongResponse} />
+      </MuiThemeProvider>
+    );
   }
 }

@@ -1,11 +1,12 @@
-import { createElement } from "react";
+import { createElement, Fragment } from "react";
 
 import IconButton from "./IconButton";
+import { paddedRow } from "../styles/Widget.scss";
 
-let IconButtons = ({ submitted, className, loading, response, onClick }) => (
-  <div>
+let IconButtons = ({ submitted, loading, response, onClick }) => (
+  <Fragment>
     {submitted !== true && (
-      <div className={className}>
+      <div className={paddedRow}>
         <IconButton
           positive={true}
           loading={loading}
@@ -21,7 +22,7 @@ let IconButtons = ({ submitted, className, loading, response, onClick }) => (
         />
       </div>
     )}
-  </div>
+  </Fragment>
 );
 
 export default IconButtons;
