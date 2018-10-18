@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
 const CompressionPlugin = require("compression-webpack-plugin")
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'production',
@@ -11,6 +12,7 @@ module.exports = merge(common, {
     filename: 'documentation-feedback.min.js'
   },
   plugins: [
-    new CompressionPlugin({ test: /\.js/ })
+    new CompressionPlugin({ test: /\.js/ }),
+    new BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false })
   ]
 });

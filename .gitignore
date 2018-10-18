@@ -3,3 +3,4 @@ build/*.js
 dist/*.js
 dist/*.gz
 .vscode
+dist/report.html

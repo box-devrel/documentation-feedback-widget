@@ -101,5 +101,5 @@ module.exports = {
       react: "preact-compat",
       "react-dom": "preact-compat"
     }
-  }
+  },
 };
