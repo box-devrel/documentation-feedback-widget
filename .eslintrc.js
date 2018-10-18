@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    "jest/globals": true
   },
   parser: "babel-eslint",
   extends: ["eslint:recommended", "plugin:react/recommended"],
@@ -9,7 +10,7 @@ module.exports = {
     ecmaVersion: "2018",
     sourceType: "module"
   },
-  plugins: ["react"],
+  plugins: ["react", "jest"],
   settings: {
     react: {
       version: "16.5",
