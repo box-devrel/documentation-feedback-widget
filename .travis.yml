@@ -4,7 +4,9 @@ node_js:
   - 10.11.0
 script:
   - yarn test
-before_deploy: yarn build
+before_deploy: 
+  - yarn build
+  - rm dist/report.html
 deploy:
   - provider: pages
     local-dir: dist
