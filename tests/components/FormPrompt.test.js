@@ -11,7 +11,7 @@ let component = shallow(
   <FormPrompt 
     className={className}
     onClick={onClick} />,
-);
+).dive().dive();
 
 test("it should contain a thank you message", () => {
   expect(component.text()).toContain("Thank you!");
