@@ -3,7 +3,7 @@ cache: yarn
 node_js:
   - 10.11.0
 script:
-- yarn test
+  - yarn test
 before_deploy: yarn build
 deploy:
   - provider: pages
