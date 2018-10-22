@@ -2,9 +2,10 @@ import { createElement } from "react";
 
 import Button from "@material-ui/core/Button";
 import LoopIcon from "@material-ui/icons/Loop";
-
 import ThumbIcon from "./ThumbIcon";
+
 import { rotating, outlined } from "../styles/Icon.scss";
+
 
 const IconButton = ({ positive, loading, onClick, response }) => {
   let selected = response === positive;
@@ -20,7 +21,7 @@ const IconButton = ({ positive, loading, onClick, response }) => {
       {response === positive && loading ? (
         <LoopIcon className={rotating} />
       ) : (
-        <ThumbIcon {...{positive}} />
+        <ThumbIcon {...{ positive }} />
       )}
     </Button>
   );

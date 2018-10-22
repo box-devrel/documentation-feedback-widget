@@ -1,6 +1,6 @@
 import  { createElement, Component } from "react";
 
-import WidgetComponent from "../components/Widget";
+import Loader from "../utils/Loader";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
@@ -28,7 +28,6 @@ export default class Widget extends Component {
   constructor(props) {
     super(props);
     
-    this.fetch = window.fetch;    
     this.state = { 
       responseId: null, 
       response: null,
@@ -67,7 +66,7 @@ export default class Widget extends Component {
    * Post basic response
    */
   postShortData = (response) => {
-    this.fetch(`${this.props.endpoint}/feedback/short`, {
+    fetch(`${this.props.endpoint}/feedback/short`, {
       method: "POST",
       body: JSON.stringify({
         useful: response,
@@ -91,7 +90,7 @@ export default class Widget extends Component {
       useful: this.state.response,
       id: this.state.id
     };
-    this.fetch(`${this.props.endpoint}/feedback/long`, {
+    fetch(`${this.props.endpoint}/feedback/long`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -142,7 +141,9 @@ export default class Widget extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <WidgetComponent 
+        <Loader 
+          moduleName='components/Widget'
+          show={true}
           {...this.state}
           onSubmitShortResponse={this.submitShortResponse}
           setShowForm={this.setShowForm}

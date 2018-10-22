@@ -1,10 +1,10 @@
-import { createElement } from "react";
+import { createElement, Fragment } from "react";
 
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 
 const ThumbsIcon = ({ positive }) => (
-  <span>
+  <Fragment>
     {
       positive ? (
         <ThumbUpIcon />
@@ -12,7 +12,7 @@ const ThumbsIcon = ({ positive }) => (
         <ThumbDownIcon />
       )
     }
-  </span>
+  </Fragment>
 );
 
 export default ThumbsIcon;
