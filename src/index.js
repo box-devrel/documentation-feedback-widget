@@ -1,3 +1,5 @@
+import "promise-polyfill/src/polyfill";
+
 import { createElement } from "react";
 import { render } from "react-dom";
 

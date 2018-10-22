@@ -2,6 +2,7 @@ import  { createElement, Component } from "react";
 
 import WidgetComponent from "../components/Widget";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { fetch as fetchPolyfill } from "whatwg-fetch";
 
 const theme = createMuiTheme({
   typography: {
@@ -27,6 +28,8 @@ export default class Widget extends Component {
    */
   constructor(props) {
     super(props);
+
+    this.fetch = fetchPolyfill;
     
     this.state = { 
       responseId: null, 
@@ -66,7 +69,7 @@ export default class Widget extends Component {
    * Post basic response
    */
   postShortData = (response) => {
-    fetch(`${this.props.endpoint}/feedback/short`, {
+    this.fetch(`${this.props.endpoint}/feedback/short`, {
       method: "POST",
       body: JSON.stringify({
         useful: response,
@@ -76,7 +79,9 @@ export default class Widget extends Component {
       headers: {
         "Content-Type": "application/json; charset=utf-8"
       }
-    }).then(res => res.json()).then(this.onShortDataSubmitted);
+    })
+      .then(res => res.json())
+      .then(this.onShortDataSubmitted);
   }
 
 
@@ -90,7 +95,7 @@ export default class Widget extends Component {
       useful: this.state.response,
       id: this.state.id
     };
-    fetch(`${this.props.endpoint}/feedback/long`, {
+    this.fetch(`${this.props.endpoint}/feedback/long`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

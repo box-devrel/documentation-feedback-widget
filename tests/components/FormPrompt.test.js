@@ -11,11 +11,11 @@ let component = shallow(
   <FormPrompt 
     className={className}
     onClick={onClick} />,
-).dive().dive();
+);
 
 test("it should contain a thank you message", () => {
-  expect(component.text()).toContain("Thank you!");
-  expect(component.text()).toContain("Would you like to tell us more?");
+  expect(component.html()).toContain("Thank you!");
+  expect(component.html()).toContain("Would you like to tell us more?");
   expect(component.html()).toContain(className);
 });
 

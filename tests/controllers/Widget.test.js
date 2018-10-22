@@ -124,12 +124,12 @@ test("#setShowForm", () => {
 });
 
 test("#postShortData", () => {
-  window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+  widget.fetch = jest.fn().mockImplementation(() => Promise.resolve({
     json: () => Promise.resolve({})
   }));
 
   widget.postShortData(true);
-  expect(window.fetch).toHaveBeenCalledWith(
+  expect(widget.fetch).toHaveBeenCalledWith(
     "http://localhost:8080//feedback/short",
     {
       body: "{\"useful\":true,\"url\":\"http://localhost/\"}",
@@ -142,7 +142,7 @@ test("#postShortData", () => {
 });
 
 test("#postLongData", () => {
-  window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+  widget.fetch = jest.fn().mockImplementation(() => Promise.resolve({
     json: () => Promise.resolve({})
   }));
 
@@ -154,7 +154,7 @@ test("#postLongData", () => {
     note: "Note"
   });
 
-  expect(window.fetch).toHaveBeenCalledWith(
+  expect(widget.fetch).toHaveBeenCalledWith(
     "http://localhost:8080//feedback/long",
     {
       "body": "{\"name\":\"Name\",\"email\":\"Email\",\"note\":\"Note\",\"url\":\"http://localhost/\",\"useful\":true}",
