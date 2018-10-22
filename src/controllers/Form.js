@@ -17,7 +17,7 @@ export default class Form extends Component {
     this.state = {
       name: this.cookie.get("name"),
       email: this.cookie.get("email"),
-      note: ""
+      note: undefined
     };
   }
 

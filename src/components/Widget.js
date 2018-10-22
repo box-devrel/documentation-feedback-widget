@@ -27,22 +27,28 @@ const Widget = ({
       loading={submittingShortResponse}
       response={response}
       onClick={onSubmitShortResponse} />
-    <Loader 
-      key={showFormPrompt}
-      moduleName='components/FormPrompt'
-      show={showFormPrompt} 
-      className={row} 
-      onClick={setShowForm} />
-    <Loader
-      moduleName='controllers/Form'
-      show={showForm}
-      className={row}
-      disabled={submittingLongResponse}
-      onSubmit={onSubmitLongResponse} />
-    <Loader 
-      moduleName='components/ThankYouNote'
-      show={submitted} 
-      className={row} />
+    { showFormPrompt && (
+      <Loader
+        key={showFormPrompt}
+        moduleName='components/FormPrompt'
+        show={showFormPrompt}
+        className={row}
+        onClick={setShowForm} />
+    )}
+    { showForm && (
+      <Loader
+        moduleName='controllers/Form'
+        show={showForm}
+        className={row}
+        disabled={submittingLongResponse}
+        onSubmit={onSubmitLongResponse} />
+    )}
+    { submitted && (
+      <Loader
+        moduleName='components/ThankYouNote'
+        show={submitted}
+        className={row} />
+    )}
   </div>
 );
 

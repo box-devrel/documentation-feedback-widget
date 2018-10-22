@@ -28,6 +28,7 @@ export default class Widget extends Component {
   constructor(props) {
     super(props);
     
+    this.fetch = window.fetch;    
     this.state = { 
       responseId: null, 
       response: null,
@@ -53,10 +54,20 @@ export default class Widget extends Component {
   };
 
   /**
-   * Submit basic response
+   * Submits any more further feedback
+   */
+  submitLongResponse = (feedback) => {
+    this.setState({
+      submittingLongResponse: true
+    });
+    this.postLongData(feedback);
+  };
+
+  /**
+   * Post basic response
    */
   postShortData = (response) => {
-    fetch(`${this.props.endpoint}/feedback/short`, {
+    this.fetch(`${this.props.endpoint}/feedback/short`, {
       method: "POST",
       body: JSON.stringify({
         useful: response,
@@ -71,7 +82,7 @@ export default class Widget extends Component {
 
 
   /**
-   * Submit a longer response
+   * Post a longer response
    */
   postLongData = (feedback) => {
     let data = { 
@@ -80,7 +91,7 @@ export default class Widget extends Component {
       useful: this.state.response,
       id: this.state.id
     };
-    fetch(`${this.props.endpoint}/feedback/long`, {
+    this.fetch(`${this.props.endpoint}/feedback/long`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -123,16 +134,6 @@ export default class Widget extends Component {
       showForm: true,
       showFormPrompt: false
     });
-  };
-
-  /**
-   * Submits any more further feedback
-   */
-  submitLongResponse = (feedback) => {
-    this.setState({
-      submittingLongResponse: true
-    });
-    this.postLongData(feedback);
   };
 
   /**
