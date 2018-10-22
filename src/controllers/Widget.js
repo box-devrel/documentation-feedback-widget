@@ -1,6 +1,6 @@
 import  { createElement, Component } from "react";
 
-import Loader from "../utils/Loader";
+import WidgetComponent from "../components/Widget";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
@@ -141,9 +141,7 @@ export default class Widget extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <Loader 
-          moduleName='components/Widget'
-          show={true}
+        <WidgetComponent
           {...this.state}
           onSubmitShortResponse={this.submitShortResponse}
           setShowForm={this.setShowForm}

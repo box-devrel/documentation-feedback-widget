@@ -1,12 +1,12 @@
 import { createElement, Fragment } from "react";
 
 import IconButton from "./IconButton";
-import { paddedRow } from "../styles/Widget.scss";
+import { row } from "../styles/Widget.scss";
 
 let IconButtons = ({ submitted, loading, response, onClick }) => (
   <Fragment>
     {submitted !== true && (
-      <div className={paddedRow}>
+      <div className={row}>
         <IconButton
           positive={true}
           loading={loading}

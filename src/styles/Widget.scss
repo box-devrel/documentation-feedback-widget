@@ -4,8 +4,8 @@
   padding: 1em 1em 0 1em;
 }
 
-.paddedRow {
-  padding: 1em;
+.row:last-child {
+  padding-bottom: 1em;
 }
 
 .container {
@@ -14,7 +14,10 @@
   border-width: 1px 2px 2px 1px;
   border-style: solid;
   border-radius: 0.3em;
-  padding-bottom: 1em;
+
+  form {
+    padding-top: 1em;
+  }
 
   .i {
     color: red;
@@ -29,7 +32,6 @@
   }
 
   a {
-    text-decoration: underline;
     color: $active;
     margin-left: 0.3em;
     cursor: pointer;

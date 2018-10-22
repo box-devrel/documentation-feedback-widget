@@ -2,7 +2,7 @@ import { createElement } from "react";
 import { render } from "react-dom";
 
 // // Local imports
-import Widget from "./controllers/Widget";
+import Loader from "./utils/Loader";
 
 /**
  * The entry point for our widget, allowing for the browser
@@ -22,7 +22,10 @@ class DocumentationFeedback {
    */
   bind() {
     let container = document.querySelector(this.config.element);
-    let widget = <Widget {...this.config}>Test</Widget>;
+    let widget = <Loader
+      show={true}
+      moduleName="controllers/Widget" 
+      {...this.config}/>;
     render(widget, container);
   }
 
