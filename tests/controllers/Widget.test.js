@@ -6,11 +6,11 @@ import Widget from "../../src/controllers/Widget";
 
 let widget;
 let setState;
-let component;;
+let component;
 
 beforeEach(() => {
   widget = new Widget({
-    endpoint: 'http://localhost:8080/'
+    endpoint: "http://localhost:8080/"
   });
 
   setState = jest.fn();
@@ -37,11 +37,11 @@ test("expect it to start with the right default state", () => {
 
 test("#submitShortResponse(true)", () => {
   let postShortData = widget.postShortData = jest.fn();
-  widget.submitShortResponse(true)()
+  widget.submitShortResponse(true)();
   expect(setState).toHaveBeenCalledWith({
     submittingShortResponse: true,
     response: true
-  })
+  });
   expect(postShortData).toHaveBeenCalledWith(true);
 });
 
@@ -57,7 +57,7 @@ test("#submitShortResponse(false)", () => {
 
 test("#submitLongResponse", () => {
   let postLongData = (widget.postLongData = jest.fn());
-  let data = { name: 'Name', email: 'email', note: 'note' };
+  let data = { name: "Name", email: "email", note: "note" };
 
   widget.submitLongResponse(data);
   expect(setState).toHaveBeenCalledWith({
@@ -68,11 +68,11 @@ test("#submitLongResponse", () => {
 
 test("#onShortDataSubmitted when negative", () => {
   widget.state.response = false;
-  let data = { id: '123' };
+  let data = { id: "123" };
 
   widget.onShortDataSubmitted(data);
   expect(setState).toHaveBeenCalledWith({
-    id: '123',
+    id: "123",
     submittingShortResponse: false,
     showForm: true,
     showFormPrompt: false
@@ -150,9 +150,9 @@ test("#postLongData", () => {
   widget.state.response = true;
 
   widget.postLongData({
-    name: 'Name',
-    email: 'Email',
-    note: 'Note'
+    name: "Name",
+    email: "Email",
+    note: "Note"
   });
 
   expect(widget.fetch).toHaveBeenCalledWith(
