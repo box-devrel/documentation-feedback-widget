@@ -22,7 +22,7 @@ To use the library apply the following 3 steps to your HTML.
 
 <!-- 3. At the bottom of your HTML initialize the demo -->
 <script type="text/javascript">
-  exploration.setup({
+  feedback.setup({
     // This element name is used in a JS querySelector
     element: '#target',
     // This base URL should point to your serverless function to handle
