@@ -14,7 +14,7 @@ To use the library apply the following 3 steps to your HTML.
 <!-- 1. Load the latest build and fonts into the HEAD of your HTML -->
 <head>
   <script src="https://box-devrel.github.io/documentation-feedback-widget/documentation-feedback.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
 <!-- 2. Create an HTML element with a class name or ID  -->

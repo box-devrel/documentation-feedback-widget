@@ -12,13 +12,14 @@ const IconButton = ({ positive, loading, onClick, response }) => {
   
   return (
     <Button
+      mini
       variant="fab" 
       color={ positive ? "primary" : "secondary" }
       aria-label={ positive ? "Yes" : "No" } 
       className={className}
       onClick={onClick}>
       {response === positive && loading ? ( 
-        <LoopIcon className={rotating}/>
+        <LoopIcon fontSize='small' className={rotating}/>
       ) : (
         <ThumbIcon {...{ positive }} />
       )}

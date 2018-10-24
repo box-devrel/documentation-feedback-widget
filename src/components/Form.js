@@ -19,7 +19,6 @@ const Form = ({
       <TextField
         value={name}
         onInput={onInput("name")}
-        variant="outlined"
         label="Name (optional)"
         autoFocus
         disabled={disabled}
@@ -30,7 +29,6 @@ const Form = ({
       <TextField
         value={email}
         onInput={onInput("email")}
-        variant="outlined"
         label="Email (optional)"
         disabled={disabled}
         type="email"
@@ -44,7 +42,6 @@ const Form = ({
         label="How could we improve it?"
         disabled={disabled}
         required={true}
-        variant="outlined"
         fullWidth={true}
         rows={4}
       />

@@ -7,6 +7,7 @@ import { fetch as fetchPolyfill } from "whatwg-fetch";
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
+    fontFamily: "'Lato', sans-serif"
   },
   palette: {
     primary: {

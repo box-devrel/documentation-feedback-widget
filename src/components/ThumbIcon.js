@@ -7,9 +7,9 @@ const ThumbsIcon = ({ positive }) => (
   <Fragment>
     {
       positive ? (
-        <ThumbUpIcon />
+        <ThumbUpIcon fontSize='small' />
       ) : (
-        <ThumbDownIcon />
+        <ThumbDownIcon fontSize='small' />
       )
     }
   </Fragment>

@@ -9,14 +9,18 @@
 }
 
 .container {
+  margin: 0 auto;
+  max-width: 580px;
   color: $text;
-  border-color: darken($light-shade, 5%);
-  border-width: 1px 2px 2px 1px;
+  border-color: $dark-shade;
+  border-width: 1px;
   border-style: solid;
-  border-radius: 0.3em;
+  background-color: $light-shade;
 
   form {
-    padding-top: 1em;
+    margin-top: 1em;
+    border-top: 1px solid $dark-shade;
+    background: $light;
   }
 
   .i {
