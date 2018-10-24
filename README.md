@@ -27,7 +27,7 @@ To use the library apply the following 3 steps to your HTML.
     element: '#target',
     // This base URL should point to your serverless function to handle
     // the data 
-    endpoint: 'https://abc123.execute-api.us-east-1.amazonaws.com/prod'
+    endpoint: 'https://hubzs7tts2.execute-api.us-east-1.amazonaws.com/prod'
   });
 </script>
 ```
