@@ -9,7 +9,8 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'documentation-feedback.min.js'
+    filename: 'documentation-feedback.min.js',
+    publicPath: 'https://box-devrel.github.io/documentation-feedback-widget/'
   },
   plugins: [
     new CompressionPlugin({ test: /\.js/ }),
