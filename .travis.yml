@@ -1,17 +1,20 @@
 language: node_js
 cache: yarn
 node_js:
-  - 10.11.0
+- 10.11.0
 script:
-  - yarn test
-before_deploy: 
-  - yarn build
-  - rm dist/report.html
+- yarn test
+before_deploy:
+- yarn build
+- rm dist/report.html
 deploy:
-  - provider: pages
-    local-dir: dist
-    github-token: $GITHUB_TOKEN
-    skip-cleanup: true
-    keep-history: true
-    on:
-      branch: master
+- provider: pages
+  local-dir: dist
+  github-token: "$GITHUB_TOKEN"
+  skip-cleanup: true
+  keep-history: true
+  on:
+    branch: master
+notifications:
+  slack:
+    secure: SwDKmF4mA29QbOD9mEdjHgkW9szVe8xt3/gIT89AmNhi5ZqWoKbEjAVoxV+xrnZauZnL6xtO7LowXJ27UYlUYlClZAs+9e1mLNDVFxHDbSYo1IbaAc7yIvTDh2BJWQR/HmcbyPHN3CX2zOYq8rTPRivicitT6TcxWRmjQfW4fbg7tXcyXX5gLlJfpm3zn7ETvWuPDTNCDc8N8XCbbuB39hJBHc03iXIe7C3P7vhgsZig8k+/qLQketdTskYcM5/29+SXYDmv2vGIew2oJ8KoY2b4H3uX2JMma2chD1QUiiytc5OqSWbX6mNBFp69ycx6QoQufjnDYH0mhSrOlwFe4XNlSn9PvNJALJjANFXGcu/EM50bZjMPPSfOcuhBBFKAjP6VhwXomYVxNGlJu7bLPbSG9FaMnTVM0PyKTW6MfLWWr7bo+WLadbUtgm3oGnrpPeBJ7A0uWg9Vw3S1aJOwoe6t8hSyt2JL38Ck8+n0JY5OPg2+KM77AOTuivC6LCSXTTEUIQzx/TTafsrfBHoYt1TSrUX5kesNfbisVYRutv9cxqTc/L+oaJjCAL2xK49w9mvuZdTcNTN7qLw5+G4db9MJ4D/O4FTvrJIDKX5b/82uBrwFIEEovRs/fKptyzZTWcncuEnKxcSZu4U6l2aQ1n1rGx2j3io2+10ydbReEZ0=
