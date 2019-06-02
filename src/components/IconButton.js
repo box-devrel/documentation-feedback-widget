@@ -1,6 +1,6 @@
 import { createElement } from "react";
 
-import Button from "@material-ui/core/Button";
+import Fab from "@material-ui/core/Fab";
 import LoopIcon from "@material-ui/icons/Loop";
 import ThumbIcon from "./ThumbIcon";
 
@@ -11,9 +11,8 @@ const IconButton = ({ positive, loading, onClick, response }) => {
   let className = response != null && !selected ? outlined : "";
   
   return (
-    <Button
-      mini
-      variant="fab" 
+    <Fab
+      size='small'
       color={ positive ? "primary" : "secondary" }
       aria-label={ positive ? "Yes" : "No" } 
       className={className}
@@ -23,7 +22,7 @@ const IconButton = ({ positive, loading, onClick, response }) => {
       ) : (
         <ThumbIcon {...{ positive }} />
       )}
-    </Button>
+    </Fab>
   );
 };
 
