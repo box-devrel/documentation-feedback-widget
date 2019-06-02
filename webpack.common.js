@@ -1,6 +1,5 @@
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
   // input
@@ -50,8 +49,7 @@ module.exports = {
             options: {
               modules: true,
               importLoaders: 1,
-              sourceMap: false,
-              autoprefixer: autoprefixer
+              sourceMap: false
             }
           },
           {
